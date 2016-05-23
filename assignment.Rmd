@@ -98,7 +98,7 @@ It is intersting to note that using the independent *rpart* fitting instead of *
 ```{r message=FALSE, warning=FALSE, fig.width=20, fig.height=10}
 set.seed(1234)
 rpModel <- rpart(classe ~ .,data=mTraining)
-fancyRpartPlot(rpModel,sub="")
+#fancyRpartPlot(rpModel,sub="")
 rpPred <- predict(rpModel,mCrossVal,type="class")
 confusionMatrix(rpPred,mCrossVal$classe)$overall['Accuracy']
 ```
@@ -164,7 +164,7 @@ which is better than the rpart model but is not as good as the random forest mod
 
 The *summary* function indicates the order of variable importance as follows
 ```{r}
-summary(gbModel$finalModel)
+head(summary(gbModel$finalModel),16)
 ```
 
 ## Prediction of the *testing* dataset with the random forest model
